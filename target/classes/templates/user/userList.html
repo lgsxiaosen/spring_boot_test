@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh">
+<head>
+    <meta charset="UTF-8"/>
+    <title>用户</title>
+</head>
+<body>
+<form id="addUser" th:method="POST" th:action="'/user/updateUser'" >
+<table>
+    <thead>
+    <tr>
+        <td>ID</td>
+        <td>名字</td>
+        <td>密码</td>
+        <td>角色</td>
+        <td>操作</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="prod : ${userList}">
+        <td th:value="${prod.id}"><input type="hidden" id="id" name="id" th:value="${prod.id}"/></td>
+        <td><input type="text" id="name" name="name" th:value="${prod.name}"/></td>
+        <td><input type="text" id="password" name="password" th:value="${prod.password}"/></td>
+        <td><input type="text" id="role" name="role" th:value="${prod.role}"/></td>
+        <td><a th:href="'/user/userInfo/'+ ${prod.id}">查看详情</a>,<button type="submit">修改</button> </td>
+    </tr>
+    </tbody>
+</table>
+</form>
+<a href="/user/userAdd">增加</a>
+</body>
+</html>

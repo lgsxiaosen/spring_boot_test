@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh">
+<head>
+    <meta charset="UTF-8"/>
+    <title>用户</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <td>ID</td>
+        <td>名字</td>
+        <!--<td>密码</td>-->
+        <td>角色</td>
+        <td>操作</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="prod : ${userList}">
+        <td th:text="${prod.id}"></td>
+        <td th:text="${prod.name}"></td>
+        <!--<td th:text="${prod.password}"></td>-->
+        <td th:text="${prod.role}"></td>
+        <td><a th:href="'/user/userInfo/'+ ${prod.id}">查看详情</a>,<a href="" </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
